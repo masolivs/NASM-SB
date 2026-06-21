@@ -1,0 +1,32 @@
+# Makefile - macros_linha (Linux 32 bits)
+# Uso:
+#   make        -> monta e linka
+#   make lst    -> exibe expansoes do listing
+#   make clean  -> remove arquivos gerados
+#
+# Dependencias: nasm, gcc-multilib
+#   sudo apt install nasm gcc-multilib
+
+ASM    = nasm
+CC     = gcc
+TARGET = macros_linha
+SRC    = macros_linha.asm
+OBJ    = macros_linha.o
+LST    = macros_linha.lst
+
+.PHONY: all lst clean
+
+all: $(TARGET)
+
+$(OBJ): $(SRC)
+	$(ASM) -f elf32 -o $(OBJ) -l $(LST) $(SRC)
+
+$(TARGET): $(OBJ)
+	$(CC) -m32 -no-pie -o $@ $<
+
+lst: $(LST)
+	@echo "=== Expansoes no listing ==="
+	@grep -E "define|idefine|xdefine|undef|assign|strlen|substr|soma|quadrado|TARD|IMEDI|CONT|TAM|CHAR_|reg_" $(LST) | head -60
+
+clean:
+	rm -f $(OBJ) $(LST) $(TARGET)
