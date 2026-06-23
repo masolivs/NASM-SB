@@ -1,6 +1,6 @@
 # Trabalho de Software Básico (2026.1) - Prof. Marcelo Ladeira
 
-Demonstração prática de macros de linha com execução e visualização de suas expansões.
+Demonstração de macros de linha com execução e visualização de suas expansões.
 
 ## Como Executar
 
