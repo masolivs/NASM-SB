@@ -11,7 +11,4 @@ make
 ./macros_linha.exe
 
 3. Ver as expansões no listing:
-cat macros_linha.lst
-
-Ou filtrando as macros específicas:
-grep -E "soma|quadrado|gato|TARD|IMEDI|CONT|TAM|CHAR|reg_|REMOVIDA" macros_linha.lst
+make lst
